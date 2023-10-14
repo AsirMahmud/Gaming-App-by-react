@@ -2,6 +2,7 @@ import { Button, Grid, GridItem, Show } from "@chakra-ui/react";
 import { color } from "framer-motion";
 import NavBar from "./components/NavBar";
 import { useState } from "react";
+import GameGrid from "./components/gameGrid";
 
 const App = () => {
   const [darkmode, setDarkMode] = useState<boolean>(true);
@@ -33,7 +34,7 @@ const App = () => {
           </GridItem>
         </Show>
         <GridItem area="main" bg="">
-          Main
+          <GameGrid></GameGrid>
         </GridItem>
       </Grid>
     </div>
