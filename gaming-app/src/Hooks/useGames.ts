@@ -13,6 +13,7 @@ export interface Game {
   name: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 
 interface FetchGames {
@@ -23,6 +24,7 @@ const useGames = () => {
   const controller = new AbortController();
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     apiClient
@@ -30,10 +32,11 @@ const useGames = () => {
       .then((res) => setGames(res.data.results))
       .catch((err) => {
         setError(err);
-      });
+      })
+      .finally(() => setLoading(false));
   }, []);
 
-  return { games, error };
+  return { games, error, isLoading };
 };
 
 export default useGames;
