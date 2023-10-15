@@ -1,4 +1,3 @@
-import { Button, HStack, Image, Text } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 import logo from "../assets/logo.png";
 import { useState } from "react";
@@ -17,11 +16,15 @@ const NavBar = ({ useDarkMode }: Props) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center shadow-lg">
-        <HStack>
-          <Image src={logo} className="w-16"></Image>
-          <Text>The Redstone</Text>
-        </HStack>
+      <div className="flex justify-between items-center  shadow-lg  ">
+        <div>
+          <div className="w-14 flex">
+            <img src={logo} className=""></img>
+            <div className="flex justify-center text-accent-content items-center">
+              <p className="text-2xl">Redstone</p>
+            </div>
+          </div>
+        </div>
         <div className="p-2">
           <button onClick={toggleDarkMode} className="btn">
             <div className="flex justify-evenly items-center">

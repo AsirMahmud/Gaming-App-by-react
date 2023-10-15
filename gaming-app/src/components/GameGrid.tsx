@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
 import useGames from "../Hooks/useGames";
+import GameCard from "./GameCard";
 
 const GameGrid = () => {
   const { games, error } = useGames();
   return (
-    <div>
+    <div className="flex justify-center items-center m-2">
       {error && <p>{error}</p>}
-      <ul>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {games.map((i) => (
-          <li>{i.name}</li>
+          <GameCard game={i}></GameCard>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

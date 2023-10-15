@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import apiClient from "../services/api-client";
-interface Game {
+
+export interface Platform {
   id: number;
   name: string;
+  slug: string;
+}
+
+export interface Game {
+  id: number;
+  name: string;
+  background_image: string;
+  parent_platforms: { platform: Platform }[];
 }
 
 interface FetchGames {
@@ -17,14 +26,11 @@ const useGames = () => {
 
   useEffect(() => {
     apiClient
-      .get<FetchGames>("/games", { signal: controller.signal })
+      .get<FetchGames>("/games")
       .then((res) => setGames(res.data.results))
       .catch((err) => {
-        if (err instanceof CanceledError) return;
         setError(err);
       });
-
-    return () => controller.abort();
   }, []);
 
   return { games, error };

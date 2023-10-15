@@ -6,11 +6,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Icon } from "@iconify/react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <ChakraProvider>
-    {" "}
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-    ,
-  </ChakraProvider>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );

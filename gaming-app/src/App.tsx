@@ -2,7 +2,7 @@ import { Button, Grid, GridItem, Show } from "@chakra-ui/react";
 import { color } from "framer-motion";
 import NavBar from "./components/NavBar";
 import { useState } from "react";
-import GameGrid from "./components/gameGrid";
+import GameGrid from "./components/GameGrid";
 
 const App = () => {
   const [darkmode, setDarkMode] = useState<boolean>(true);
@@ -13,30 +13,16 @@ const App = () => {
 
   return (
     <div data-theme={darkmode ? "dark" : "light"}>
-      <Grid
-        templateAreas={{
-          base: `"nav " " main"`,
-          lg: `"nav nav" "aside main"`,
-        }}
-      >
-        <GridItem area="nav">
+      <div className="grid grid-cols-5 gap-3 ">
+        <div className="col-span-5 sticky  ">
           <NavBar useDarkMode={useDarkMode}></NavBar>
-        </GridItem>
-        <Show above="lg">
-          {" "}
-          <GridItem
-            area="aside"
-            bg=""
-            height={"full"}
-            className="h-full bg-primary"
-          >
-            Aside
-          </GridItem>
-        </Show>
-        <GridItem area="main" bg="">
+        </div>
+
+        <div className="bg-blue-500 hidden md:block"></div>
+        <div className="  col-span-5 md:col-span-4">
           <GameGrid></GameGrid>
-        </GridItem>
-      </Grid>
+        </div>
+      </div>
     </div>
   );
 };
