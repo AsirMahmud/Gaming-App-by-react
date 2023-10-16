@@ -3,6 +3,7 @@ import { color } from "framer-motion";
 import NavBar from "./components/NavBar";
 import { useState } from "react";
 import GameGrid from "./components/GameGrid";
+import GenreList from "./components/GenreList";
 
 const App = () => {
   const [darkmode, setDarkMode] = useState<boolean>(true);
@@ -18,7 +19,9 @@ const App = () => {
           <NavBar useDarkMode={useDarkMode}></NavBar>
         </div>
 
-        <div className="bg-blue-500 hidden md:block"></div>
+        <div className="bg-base-300 hidden md:block">
+          <GenreList></GenreList>
+        </div>
         <div className="  col-span-5 md:col-span-4">
           <GameGrid></GameGrid>
         </div>
