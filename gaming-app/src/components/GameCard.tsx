@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Game } from "../Hooks/useGames";
 import PlatFormIconList from "./PlatFormIconList";
 import CriticScore from "./CriticScore";
@@ -19,7 +17,7 @@ const GameCard = ({ game }: props) => {
           alt="Product"
         />
       </div>
-      <div className="m-2 flex  justify-between">
+      <div className="m-2 flex  justify-between items-center">
         <div className="cursor-pointer">
           <p className="font-bold  my-2">{game.name}</p>
         </div>

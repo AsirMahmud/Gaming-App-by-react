@@ -1,5 +1,3 @@
-import { Button, Grid, GridItem, Show } from "@chakra-ui/react";
-import { color } from "framer-motion";
 import NavBar from "./components/NavBar";
 import { useState } from "react";
 import GameGrid from "./components/GameGrid";
@@ -19,7 +17,7 @@ const App = () => {
           <NavBar useDarkMode={useDarkMode}></NavBar>
         </div>
 
-        <div className="bg-base-300 hidden md:block">
+        <div className="bg-base-300 w-30% hidden md:block">
           <GenreList></GenreList>
         </div>
         <div className="  col-span-5 md:col-span-4">
