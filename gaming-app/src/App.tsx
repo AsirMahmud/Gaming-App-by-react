@@ -3,10 +3,18 @@ import { useState } from "react";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { Genres } from "./Hooks/useGenres";
+import PlatFormDropDown from "./components/PlatFormDropDown";
+import { Platform } from "./Hooks/useGames";
+import SortSelctor from "./components/SortSelctor";
+
+export interface GameQuery {
+  genre: Genres | null;
+  platform: Platform | null;
+}
 
 const App = () => {
   const [darkmode, setDarkMode] = useState<boolean>(true);
-  const [selectedGernre, setSelectedGenre] = useState<Genres | null>(null);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   const useDarkMode = () => {
     setDarkMode(!darkmode);
@@ -21,11 +29,24 @@ const App = () => {
 
         <div className="bg-base-300 w-30% hidden md:block">
           <GenreList
-            onSelectGenre={(genre) => setSelectedGenre(genre)}
+            selectedGenre={gameQuery.genre}
+            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           ></GenreList>
         </div>
         <div className="  col-span-5 md:col-span-4">
-          <GameGrid selectedGenre={selectedGernre}></GameGrid>
+          <div className="flex">
+            <PlatFormDropDown
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
+            ></PlatFormDropDown>
+            <SortSelctor></SortSelctor>
+          </div>
+          <GameGrid
+            gameQuery={gameQuery}
+            seletedPlatform={gameQuery.platform}
+            selectedGenre={gameQuery.genre}
+          ></GameGrid>
         </div>
       </div>
     </div>

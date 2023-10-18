@@ -3,9 +3,12 @@ import getCroppedImage from "../services/image-url";
 import GenreSkeliton from "./GenreSkeliton";
 interface props {
   onSelectGenre: (genre: Genres) => void;
+  selectedGenre: Genres | null;
 }
 
-function GenreList({ onSelectGenre }: props) {
+function GenreList({ onSelectGenre, selectedGenre }: props) {
+  const dynamicStyle =
+    "flex cursor-pointer justify-start items-center p-4 m-2 bg-base-100 hover:bg-base-300 rounded-xl";
   const { data, isLoading, error } = useGenres();
   return (
     <div>
@@ -13,7 +16,11 @@ function GenreList({ onSelectGenre }: props) {
       {data.map((i) => (
         <div
           onClick={() => onSelectGenre(i)}
-          className="flex cursor-pointer justify-start items-center p-4 m-2 bg-base-100 hover:bg-base-300 rounded-xl"
+          className={
+            i.id === selectedGenre?.id
+              ? dynamicStyle + " bg-base-100"
+              : dynamicStyle
+          }
           key={i.id}
         >
           <div className="avatar">

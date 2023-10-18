@@ -18,6 +18,7 @@ const useData = <T>(
 
   useEffect(
     () => {
+      setLoading(true);
       apiClient
         .get<FetchResposne>(endPoint, { ...requestConfig })
         .then((res) => setData(res.data.results))
