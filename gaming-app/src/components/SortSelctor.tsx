@@ -16,7 +16,7 @@ const SortSelctor = ({ setSelectSortOrder, selectedSort }: Props) => {
 
   return (
     <div>
-      <details className="dropdown ml-20">
+      <details className="dropdown md:ml-20">
         <summary className="m-1 btn">
           Order by - <span>{foundedSort?.label}</span>
         </summary>

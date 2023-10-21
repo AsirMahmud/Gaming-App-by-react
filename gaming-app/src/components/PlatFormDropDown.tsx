@@ -9,7 +9,7 @@ const PlatFormDropDown = ({ onSelectPlatform }: props) => {
   const { data } = usePlatForm();
   return (
     <div>
-      <details className="dropdown ml-20">
+      <details className="dropdown ml-2 md:ml-20">
         <summary className="m-1 btn">PlatForms</summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
           {data.map((i) => (

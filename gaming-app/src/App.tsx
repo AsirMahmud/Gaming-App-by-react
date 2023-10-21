@@ -19,6 +19,7 @@ const App = () => {
     genre: null,
     platform: null,
     sortOrder: null,
+    searchedText: null,
   });
 
   const useDarkMode = () => {
@@ -29,7 +30,12 @@ const App = () => {
     <div data-theme={darkmode ? "dark" : "light"}>
       <div className="grid grid-cols-5 gap-3 ">
         <div className="col-span-5 sticky">
-          <NavBar useDarkMode={useDarkMode}></NavBar>
+          <NavBar
+            onSerach={(searchedText) =>
+              setGameQuery({ ...gameQuery, searchedText })
+            }
+            useDarkMode={useDarkMode}
+          ></NavBar>
         </div>
 
         <div className="bg-base-300 w-30% hidden md:block">
@@ -39,7 +45,7 @@ const App = () => {
           ></GenreList>
         </div>
         <div className="col-span-5 md:col-span-4">
-          <div className="flex">
+          <div className="flex ju">
             <PlatFormDropDown
               onSelectPlatform={(platform) =>
                 setGameQuery((prevGameQuery) => ({
