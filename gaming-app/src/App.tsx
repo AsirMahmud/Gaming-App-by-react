@@ -45,7 +45,8 @@ const App = () => {
           ></GenreList>
         </div>
         <div className="col-span-5 md:col-span-4">
-          <div className="flex ju">
+          <GenreHeadn
+          <div className="flex ">
             <PlatFormDropDown
               onSelectPlatform={(platform) =>
                 setGameQuery((prevGameQuery) => ({
