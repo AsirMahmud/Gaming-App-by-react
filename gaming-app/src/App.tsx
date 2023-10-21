@@ -6,6 +6,7 @@ import PlatFormDropDown from "./components/PlatFormDropDown";
 import SortSelctor from "./components/SortSelctor";
 import { Genres } from "./Hooks/useGenres";
 import { Platform } from "./Hooks/useGames";
+import GameHeading from "./components/GameHeading";
 
 export interface GameQuery {
   genre: Genres | null;
@@ -45,7 +46,7 @@ const App = () => {
           ></GenreList>
         </div>
         <div className="col-span-5 md:col-span-4">
-          <GenreHeadn
+          <GameHeading gameQuery={gameQuery}></GameHeading>
           <div className="flex ">
             <PlatFormDropDown
               onSelectPlatform={(platform) =>

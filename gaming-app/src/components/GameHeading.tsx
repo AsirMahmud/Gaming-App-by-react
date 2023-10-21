@@ -1,11 +1,16 @@
+import { GameQuery } from "../App";
+
 interface Props {
-  genreText: string | null;
+  gameQuery: GameQuery;
 }
 
-const GameHeading = ({ genreText }: Props) => {
+const GameHeading = ({ gameQuery }: Props) => {
+  const heading = `${gameQuery.platform?.name || ""} ${
+    gameQuery.genre?.name || ""
+  } Games`;
   return (
     <div>
-      <h1 className="text-6xl">{genreText ? genreText + " Games" : "Games"}</h1>
+      <h1 className="sm:text-7xl text-4xl  m-4">{heading}</h1>
     </div>
   );
 };

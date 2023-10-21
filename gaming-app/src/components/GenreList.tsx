@@ -8,7 +8,7 @@ interface props {
 
 function GenreList({ onSelectGenre, selectedGenre }: props) {
   const dynamicStyle =
-    "flex cursor-pointer justify-start items-center p-4 m-2 bg-base-100 hover:bg-base-300 rounded-xl";
+    "flex cursor-pointer justify-start items-center wrap p-4 m-2 bg-base-100 hover:bg-base-300 rounded-xl";
   const { data, isLoading, error } = useGenres();
   return (
     <div>
