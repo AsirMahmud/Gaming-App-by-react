@@ -1,5 +1,3 @@
-import { Button } from "@chakra-ui/react";
-
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 interface props {

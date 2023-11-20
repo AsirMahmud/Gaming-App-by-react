@@ -11,6 +11,7 @@ import {
 import { SiNintendo } from "react-icons/si";
 import { MdPhoneAndroid } from "react-icons/md";
 import { Icon } from "@chakra-ui/react";
+import { IconType } from "react-icons/lib/esm/iconBase";
 
 interface props {
   platform: Platform[];

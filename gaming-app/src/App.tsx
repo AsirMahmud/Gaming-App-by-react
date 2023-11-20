@@ -12,6 +12,7 @@ export interface GameQuery {
   genre: Genres | null;
   platform: Platform | null;
   sortOrder: string | null;
+  searchedText: string | null;
 }
 
 const App = () => {

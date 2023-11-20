@@ -1,4 +1,3 @@
-import React from "react";
 import usePlatForm from "../Hooks/usePlatFrom";
 import { Platform } from "../Hooks/useGames";
 interface props {

@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import axios, { AxiosRequestConfig } from "axios";
-
-interface FetchResposne {
-  count: number;
-  results: T[];
-}
+import { AxiosRequestConfig } from "axios";
 
 const useData = <T>(
   endPoint: string,
@@ -15,7 +10,10 @@ const useData = <T>(
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(true);
-
+  interface FetchResposne {
+    count: number;
+    results: T[];
+  }
   useEffect(
     () => {
       setLoading(true);
